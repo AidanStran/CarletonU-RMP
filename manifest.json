@@ -1,0 +1,27 @@
+{
+    "name": "Rate My Professor - Carleton University",
+    "version": "1.0",
+    "description": "Giving you a better understanding for your professors",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "scripting",
+        "webNavigation"
+      ],
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": ["*://central.carleton.ca/prod/bwysched.p_course_search"],
+            "js": ["contentScript.js", "./node_modules/jquery/dist/jquery.min.js","test.js"],
+            "css": ["styles.css"]
+        }
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+    "icons": {
+        "16": "./imgs/cuIcon.png",
+        "48": "./imgs/cuIcon.png",
+        "128": "./imgs/cuIcon.png"
+      }
+}

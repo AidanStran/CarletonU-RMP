@@ -1,0 +1,5 @@
+2024/01/09-16:16:01.067 5f60 Creating DB D:\dev\RMPCarleton\tmp\Default\Session Storage since it was missing.
+2024/01/09-16:16:02.196 5f60 Reusing MANIFEST D:\dev\RMPCarleton\tmp\Default\Session Storage/MANIFEST-000001
+2024/01/09-16:16:10.780 5f60 Level-0 table #5: started
+2024/01/09-16:16:10.856 5f60 Level-0 table #5: 33910 bytes OK
+2024/01/09-16:16:10.970 5f60 Delete type=0 #3
