@@ -4,6 +4,7 @@ $(document).ready(async function(){
     const tableRow = document.querySelectorAll('tr[bgcolor="#DCDCDC"], tr[bgcolor="#C0C0C0"]');
     const newDiv = document.createElement('div');
 
+    profCache = [];
     // Structure for the rating Popup on hover
     // will have to do this process for EVERY teacher it sees, could load some to memory
 
@@ -55,17 +56,20 @@ $(document).ready(async function(){
                     }
                     tableRow[i].children[10].innerHTML = circleRate;
                 }
-                var newElement = document.createElement('div');
-                newElement.innerHTML =  `<div class="popup-${teacherName}">
-                                            <div>${teacherName}</div>
-                                            <div>${teacherData.avgRating}</div>
-                                        </div>`;
-                newElement.style.display = 'none';
-                newElement.style.position = 'absolute';
-                newElement.style.backgroundColor = '#ffffff';
-
-
-                document.body.appendChild(newElement);
+    
+                /*
+                $(document).ready(function() {
+                    // Show popup when button is hovered over
+                    $('.a-Tag').hover(function() {
+                      $('#popup').show(); //class to show
+                    });
+                  
+                    // Hide popup when mouse leaves the popup area
+                    $('#popup').mouseleave(function() {
+                      $('#popup').hide();
+                    });
+                  });
+                  */
                 
             }
         }
@@ -98,6 +102,16 @@ const getProf = async (name) => {
         console.error('Fetch error:', error);
         return null;
     }
+}
+
+const profDiv = async (name, rating, difficulty, id, ) => {
+    if (rating === "0"){
+        //then no rating
+    }
+    else{
+        //create the div for tooltip
+    }
+
 }
 
 
