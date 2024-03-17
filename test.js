@@ -27,7 +27,7 @@ $(document).ready(async function(){
                 }
                 else{ //Case that the professors RMP profile does exist
                     const aTag = document.createElement('a');
-                    aTag.innerText = teacherName;
+                    aTag.innerText = teacherData.firstName + ' ' +teacherData.lastName;
                     aTag.className = 'a-Tag';
                     aTag.href = `https://www.ratemyprofessors.com/professor/${teacherData.legacyId}`;
                     aTag.target = '_blank';
@@ -80,7 +80,7 @@ $(document).ready(async function(){
 const getProf = async (name) => {
     try {
         const newName = encodeURIComponent(name);
-        const response = await fetch(`http://localhost:3300/api/getProf/${newName}`);
+        const response = await fetch(`http://localhost:3300/api/getProf/${newName}`, { cache:"force-cache" });
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
