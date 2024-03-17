@@ -56,33 +56,22 @@ $(document).ready(async function(){
                     }
                     tableRow[i].children[10].innerHTML = circleRate;
                 }
-    
-                /*
+                /*const divContainer = document.createElement('div');
+                divContainer.innerHTML = await profDiv(teacherName, teacherData.avgRating, teacherData.avgDifficulty, teacherData.legacyId, teacherData.numRatings);
+                document.append(divContainer);
                 $(document).ready(function() {
                     // Show popup when button is hovered over
                     $('.a-Tag').hover(function() {
-                      $('#popup').show(); //class to show
-                    });
-                  
+                      $('.popup').show(); //class to show
+                    });                
                     // Hide popup when mouse leaves the popup area
-                    $('#popup').mouseleave(function() {
-                      $('#popup').hide();
-                    });
-                  });
-                  */
-                
+                    $('.popup').mouseleave(function() {
+                      $('.popup').hide();
+                    }); 
+                });
+                */
             }
         }
-
-        /*.popup {
-            display: none;
-            position: absolute;
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            padding: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        */
     }
 });
 
@@ -104,14 +93,33 @@ const getProf = async (name) => {
     }
 }
 
-const profDiv = async (name, rating, difficulty, id, ) => {
+const profDiv = async (name, rating, difficulty, id, numRatings) => {
     if (rating === "0"){
         //then no rating
+        return div = `<div class="popup">
+                        <span>
+                        <div class="teacher-title">${name}</div>
+                            <div class="rating">
+                            <span class="avgRating">No Rating</span>
+                            <span class="avgDiff">${newDiff}%</span>
+                            </div>
+                        <div class="numRatings">0 votes</div>
+                        </span>
+                    </div>`; 
     }
     else{
-        //create the div for tooltip
+        newDiff = (difficulty * 5)/100;
+        return div = `<div class="popup">
+                        <span>
+                        <div class="teacher-title">${name}</div>
+                            <div class="rating">
+                            <span class="avgRating">${rating}/5</span>
+                            <span class="avgDiff">${newDiff}%</span>
+                            </div>
+                        <div class="numRatings">In ${numRatings} votes</div>
+                        </span>
+                    </div>`; 
     }
-
 }
 
 
