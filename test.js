@@ -30,6 +30,7 @@ $(document).ready(async function(){
                     aTag.innerText = teacherName;
                     aTag.className = 'a-Tag';
                     aTag.href = `https://www.ratemyprofessors.com/professor/${teacherData.legacyId}`;
+                    aTag.target = '_blank';
                     tableRow[i].children[11].replaceWith(aTag); 
                     //document.createElement('popup');
                 }
