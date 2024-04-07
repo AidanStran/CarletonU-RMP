@@ -20,7 +20,7 @@ $(document).ready(async function(){
                 
                 //Replace teachernames with a-Tag hyperlinks to the RMP website
                 if (teacherData.legacyId == null){
-                    const aTag = document.createElement('a');
+                    const aTag = document.createElement('span');
                     aTag.innerText = teacherName;
                     aTag.className = 'a-Tag';
                     tableRow[i].children[11].replaceWith(aTag);
@@ -46,31 +46,18 @@ $(document).ready(async function(){
                 else{ //if they have a rating, display rating
                     const rate = teacherData.avgRating;
                     const newrate = rate.toFixed(1);
-                    if (rate >= 4.0){ //green
-                        var circleRate = `<span class="circle" style="background-color: green;">${newrate}</span>`;
-                    } else if(rate >= 3.4){ //orange
+                    if (rate >= 3.7){ //green
+                        var circleRate = `<span class="circle" style="background-color: #32CD32;">${newrate}</span>`;
+                    } else if(rate >= 3.6){ //orange
                         var circleRate = `<span class="circle" style="background-color: yellow;">${newrate}</span>`;
-                    } else if (rate >= 2.3){ //yellow
+                    } else if (rate >= 2.0){ //yellow
                         var circleRate = `<span class="circle" style="background-color: orange;">${newrate}</span>`;
                     } else if (rate >= 0){ //red
                         var circleRate = `<span class="circle" style="background-color: red;">${newrate}</span>`;
                     }
                     tableRow[i].children[10].innerHTML = circleRate;
                 }
-                /*const divContainer = document.createElement('div');
-                divContainer.innerHTML = await profDiv(teacherName, teacherData.avgRating, teacherData.avgDifficulty, teacherData.legacyId, teacherData.numRatings);
-                document.append(divContainer);
-                $(document).ready(function() {
-                    // Show popup when button is hovered over
-                    $('.a-Tag').hover(function() {
-                      $('.popup').show(); //class to show
-                    });                
-                    // Hide popup when mouse leaves the popup area
-                    $('.popup').mouseleave(function() {
-                      $('.popup').hide();
-                    }); 
-                });
-                */
+                
             }
         }
     }
