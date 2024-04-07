@@ -19,9 +19,10 @@ $(document).ready(async function(){
                 const teacherData = await getProf(teacherName); //API CALL
                 
                 //Replace teachernames with a-Tag hyperlinks to the RMP website
-                if (teacherData.legacyId == null){
+                if (teacherData.legacyId == null){ //teacher has no profile on RMP
                     const aTag = document.createElement('span');
                     aTag.innerText = teacherName;
+                    aTag.style.color = "black";
                     aTag.className = 'a-Tag';
                     tableRow[i].children[11].replaceWith(aTag);
                 }
