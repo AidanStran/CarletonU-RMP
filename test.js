@@ -14,8 +14,6 @@ $(document).ready(async function(){
                 
                 teacherName = tableRow[i].children[11].innerText;
                 //console.log(teacherName);
-
-
                 const teacherData = await getProf(teacherName); //API CALL
                 
                 //Replace teachernames with a-Tag hyperlinks to the RMP website
@@ -30,10 +28,11 @@ $(document).ready(async function(){
                     const aTag = document.createElement('a');
                     aTag.innerText = teacherData.firstName + ' ' +teacherData.lastName;
                     aTag.className = 'a-Tag';
+                    aTag.title = profDiv(teacherData.firstName, teacherData.avgRating, teacherData.avgDifficulty, teacherData.numRatings);
                     aTag.href = `https://www.ratemyprofessors.com/professor/${teacherData.legacyId}`;
                     aTag.target = '_blank';
                     tableRow[i].children[11].replaceWith(aTag); 
-                    //document.createElement('popup');
+                    
                 }
                 
                 console.log(teacherData);
@@ -58,7 +57,10 @@ $(document).ready(async function(){
                     }
                     tableRow[i].children[10].innerHTML = circleRate;
                 }
-                
+                $(".a-Tag").tooltip().hover();
+                //$('.a-Tag').tooltip('show');
+                //var content = $( ".a-Tag" ).tooltip( "option", "classes.ui-tooltip");
+                //console.log(content);
             }
         }
     }
@@ -82,32 +84,33 @@ const getProf = async (name) => {
     }
 }
 
-const profDiv = async (name, rating, difficulty, id, numRatings) => {
-    if (rating === "0"){
+function profDiv(name, rating, difficulty, numRatings){
+    if (rating == null){
         //then no rating
-        return div = `<div class="popup">
+        return `<div class="popup">
                         <span>
                         <div class="teacher-title">${name}</div>
                             <div class="rating">
                             <span class="avgRating">No Rating</span>
-                            <span class="avgDiff">${newDiff}%</span>
+                            <span class="avgDiff">${difficulty}%</span>
                             </div>
                         <div class="numRatings">0 votes</div>
                         </span>
                     </div>`; 
     }
     else{
+        //has rating
         newDiff = (difficulty * 5)/100;
-        return div = `<div class="popup">
-                        <span>
+        return `<div class="popup">
+                    <span>
                         <div class="teacher-title">${name}</div>
                             <div class="rating">
                             <span class="avgRating">${rating}/5</span>
-                            <span class="avgDiff">${newDiff}%</span>
+                            <span class="avgDiff">${difficulty}%</span>
                             </div>
                         <div class="numRatings">In ${numRatings} votes</div>
-                        </span>
-                    </div>`; 
+                    </span>
+                </div>`; 
     }
 }
 

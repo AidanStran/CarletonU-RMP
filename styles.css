@@ -28,3 +28,13 @@
     align-items: center;
     color: rgb(0, 0, 0); 
 }
+
+.ui-tooltip-content{ /* for content inside */
+    color: black;
+    background-color: #fff;
+    
+}
+
+.ui-tooltip{ /* for container */
+    background-color: #fff;
+}

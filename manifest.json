@@ -12,7 +12,7 @@
     "content_scripts": [
         {
             "matches": ["*://central.carleton.ca/prod/bwysched.p_course_search"],
-            "js": ["contentScript.js", "./node_modules/jquery/dist/jquery.min.js","test.js"],
+            "js": ["contentScript.js", "./node_modules/jquery/dist/jquery.min.js","test.js", "./node_modules/jquery-ui/dist/jquery-ui.js"],
             "css": ["styles.css"]
         }
     ],
