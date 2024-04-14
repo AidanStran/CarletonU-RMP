@@ -13,15 +13,16 @@ $(document).ready(async function(){
             if(tableRow[i].children[11].innerText !== ""){
                 
                 teacherName = tableRow[i].children[11].innerText;
-                //console.log(teacherName);
-                if (profCache.includes(teacherName)){
+                console.log(teacherName);
 
-                }
                 const teacherData = await getProf(teacherName); //API CALL
-                
+                if (teacherData == null) {
+                    console.log('empty');
+                }
+                console.log(teacherData);
 
                 //Replaces teachernames with a-Tag hyperlinks to the RMP website
-                if (teacherData.legacyId == null){ //teacher has no profile on RMP
+                if (teacherData == undefined || teacherData.legacyId == null ){ //teacher has no profile on RMP
                     const aTag = document.createElement('span');
                     aTag.innerText = teacherName;
                     aTag.style.color = "black";
@@ -42,7 +43,7 @@ $(document).ready(async function(){
                 console.log(teacherData);
                 
                 //Create circle + rating element
-                if (teacherData.avgRating == null || teacherData.legacyId == null || teacherData.avgRating == 0) { //if no rating is found or no profile is found, display --
+                if (teacherData == undefined || teacherData.avgRating == null || teacherData.legacyId == null || teacherData.avgRating == 0) { //if no rating is found or no profile is found, display --
                     const rate = '--';
                     var circleRate = `<span class="circle" style="background-color: grey;">${rate}</span> `;
                     tableRow[i].children[10].innerHTML = circleRate;
