@@ -33,10 +33,12 @@ $(document).ready(async function(){
                     aTag.target = '_blank';
                     tableRow[i].children[11].replaceWith(aTag);
                     
-                    $('.tooltip-trigger').hover(function(){
-                        var toolTipDiv = profDiv(teacherData.firstName, teacherData.avgRating, teacherData.avgDifficulty, teacherData.numRatings);
-                        $(this).siblings('.tooltip').text(tooltipText);
-                      });
+                    //create tooltip for the aTag
+                    var toolTipDiv = document.createElement('div')
+                    toolTipDiv.className = 'toolTipper'
+
+                    toolTipDiv.innerHTML = profDiv(teacherData.firstName, teacherData.avgRating, teacherData.avgDifficulty, teacherData.numRatings);
+                    const popperInstance = Popper.createPopper(aTag, toolTipDiv);
 
                 }
                 
