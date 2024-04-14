@@ -4,6 +4,7 @@ const cors = require('cors');
 const RMP = require('@mtucourses/rate-my-professors').default;
 const app = express();
 
+const cache = require('./routeCache');
 
 const PORT = 3300;
 app.use(cors());
@@ -56,7 +57,7 @@ async function getProf(name) {
 }
 
 //change var names
-app.get('/api/getProf/:name', async (req, res) => {
+app.get('/api/getProf/:name', cache(200), async (req, res) => {
     const { name } = req.params;
     try {
         const prof = await getProf(name);
