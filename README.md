@@ -1,7 +1,9 @@
 # Carleton University RateMyProf
+<p align = "center">
+<img src="https://github.com/AidanStran/CarletonU-RMP/assets/121579270/0a429ebb-93ef-4ef6-93cd-e15586f849ac" align="center" alt="Carleton Ravens" width="450" height="500"/> 
+</p>
 
-<center><img src="https://github.com/AidanStran/CarletonU-RMP/assets/121579270/0a429ebb-93ef-4ef6-93cd-e15586f849ac" alt="Carleton Ravens" width="800" height="1000"/> </center>
-
+# Description
 Simple lightweight chrome extension used for Carleton University students to compare professors and design a better timetable for themselves.
 
 ## Download
