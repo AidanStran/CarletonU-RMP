@@ -11,36 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 
-
-/*async function getRatings(teacher) {
-    try{
-        const professor = await RMP.searchTeacher(teacher, CU_ID);
-        if (professor.length === 0) {
-        return 'N/A';
-        }
-        const prof = await RMP.getTeacher(professor[0].id);
-        return prof.avgDifficulty;
-    } 
-    catch (error) {
-        console.error('An error occurred:', error);
-        throw error;
-    }
-
-}
-
-
-app.get('/api/get/:teacher', async (req,res)=>{
-    //console.log(await getSchool());
-    const { teacher } = req.params;
-    try {
-        res.send(await getRatings(teacher));
-    } catch (error) {
-        res.status(500).json({ error: 'An error occurred' });
-    }
-    
-});
-*/
-
 async function getProf(name) {
     try {
         const CU_ID = "U2Nob29sLTE0MjA=";

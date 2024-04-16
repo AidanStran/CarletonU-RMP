@@ -2,11 +2,11 @@
 
 $(document).ready(async function(){ 
     const tableRow = document.querySelectorAll('tr[bgcolor="#DCDCDC"], tr[bgcolor="#C0C0C0"]');
-    
 
-    const profCache = [];
-    // Structure for the rating Popup on hover
-    // will have to do this process for EVERY teacher it sees, could load some to memory
+    const restrictions = document.querySelectorAll('tr');
+    restrictions[10].children[9].children[0].children[0].children[0].textContent = 'Teacher Rating';
+    
+    console.log(restrictions[10].children[9].children[0].children[0].children[0].textContent);
 
     for (let i = 0; i < tableRow.length; i++){
         if (tableRow[i].children.length == 12){
@@ -39,15 +39,16 @@ $(document).ready(async function(){
                     tableRow[i].children[11].replaceWith(aTag);
                 }
                 
-                console.log(teacherData);
+                //console.log(teacherData);
                 
+
+
                 //Create circle + rating element
                 if (teacherData == undefined || teacherData.avgRating == null || teacherData.legacyId == null || teacherData.avgRating == 0) { //if no rating is found or no profile is found, display --
                     const rate = '--';
                     var circleRate = `<span class="circle" style="background-color: grey;">${rate}</span> `;
                     const newDiv = document.createElement('div');
                     tableRow[i].children[10].innerHTML = ' '; // Clear existing content
-                    newDiv.textContent = 'R: '; // Use textContent to set text content
                     newDiv.innerHTML += circleRate; // Use innerHTML to append HTML string
                     tableRow[i].children[10].appendChild(newDiv); // Append newDiv to tableRow
                     
@@ -62,11 +63,10 @@ $(document).ready(async function(){
                     } else if (rate >= 2.0) { //yellow
                         var circleRate = `<span class="circle" style="background-color: orange;">${newrate}</span>`;
                     } else if (rate >= 0) { //red
-                        var circleRate = `<span class="circle" style="background-color: red;">${newrate}</span>`;
+                        var circleRate = `<span class="circle" style="background-color: #fc1100;">${newrate}</span>`;
                     }
                     const newDiv = document.createElement('div');
                     newDiv.className = 'circleContainer';
-                    newDiv.textContent = 'R: '; // Use textContent to set text content
                     newDiv.innerHTML += circleRate; // Use innerHTML to append HTML string
                     
                     tableRow[i].children[10].innerHTML = ' '; // Clear existing content
