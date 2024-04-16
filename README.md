@@ -1,10 +1,10 @@
 # Carleton University RateMyProf
 ![image](https://github.com/AidanStran/CarletonU-RMP/assets/121579270/0a429ebb-93ef-4ef6-93cd-e15586f849ac)
 
-Simple light-weight chrome extension used for Carleton University students to compare professors and design a better timetable for themselves.
+Simple lightweight chrome extension used for Carleton University students to compare professors and design a better timetable for themselves.
 
 ## Download
-- Users can find the commercial download to the chrome extension through the google chrome store.
+- Users can find the commercial download to the Chrome extension through the Google Chrome store.
 
 
 
