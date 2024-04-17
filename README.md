@@ -10,10 +10,10 @@ Simple lightweight chrome extension used for Carleton University students to com
 - Users can find the commercial download to the Chrome extension through the Google Chrome store.
 
 
-
 ## Usage
 - Open Carleton Central and search for courses that fit your criteria
-- Students will be met with a Rating column and a hyperlink to their professor's RateMyProf link
+- Students will be met with a Rating column and a hyperlink to their professor's RateMyProf link for faster access and convenience
 
+![image](https://github.com/AidanStran/CarletonU-RMP/assets/121579270/90815f21-0276-4f57-9d17-23391b932a73)
 
 
